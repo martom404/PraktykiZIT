@@ -17,10 +17,9 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-                    <a href="/contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
-                    <a href="/about" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                        <x-nav-link href="/" :active="request()->is('/')" type="a">Home</x-nav-link>
+                        <x-nav-link href="/contact" :active="request()->is('contact')" type="a">Contact</x-nav-link>
+                        <x-nav-link href="/about" :active="request()->is('about')" type="a">About</x-nav-link>
                     </div>
                 </div>
                 </div>
@@ -78,8 +77,8 @@
                     <img class="size-10 rounded-full" src="https://laracasts.com/images/lary-ai-face.svg" alt="" />
                 </div>
                 <div class="ml-3">
-                    <div class="text-base/5 font-medium text-white">Tom Cook</div>
-                    <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+                    <div class="text-base/5 font-medium text-white">M T</div>
+                    <div class="text-sm font-medium text-gray-400">m@t.com</div>
                 </div>
                 <button type="button" class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                     <span class="absolute -inset-1.5"></span>
@@ -103,6 +102,5 @@
             </div>
         </main>
         </div>
-
     </body>
 </html>
