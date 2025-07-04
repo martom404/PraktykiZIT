@@ -10,6 +10,7 @@ Route::get('/', function () {
         'name' => 'mt',
         'greeting' => 'Hello!'
     ]);
+
 });
 
 Route::get('/jobs', function () {
