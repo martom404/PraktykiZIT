@@ -7,14 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    protected $table = 'posts';
     protected $fillable = ['title', 'content', 'user_id'];
 
     public function user() {
         return $this->belongsTo(UserBlog::class);
     }
 
-    public function comment() {
+    public function comments() {
         return $this->hasMany(Comment::class);
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, foreignPivotKey: 'post_id');
     }
 }
 /*
