@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Job;
+use App\Models\User;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -50,8 +52,9 @@ class JobController extends Controller
         return view('jobs.edit', ['job' => $job]);
     }
 
-    public function update(Job $job)
+    public function update(Job $job, Gate $gate)
     {
+        $gate->authorize('edit', $job);
         request()->validate([
             'title' => ['required', 'min:3'],
             'salary' => ['required']
@@ -65,8 +68,9 @@ class JobController extends Controller
         return redirect('/jobs/' . $job->id);
     }
 
-    public function destroy(Job $job)
+    public function destroy(Job $job, Gate $gate)
     {
+        $gate->authorize('edit', $job);
         $job->delete();
         return redirect('/jobs');
     }

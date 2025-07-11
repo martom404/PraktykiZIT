@@ -9,7 +9,9 @@
         <p class="text-sm text-blue-800">This job is offered by <strong>{{ $job->employer?->name ?? "null" }}</strong>
         </p>
     @endif
-    <p class="mt-6">
-        <x-button href="/jobs/{{ $job->id }}/edit">Edit job</x-button>
-    </p>
+    @can('edit', $job)
+        <p class="mt-6">
+            <x-button href="/jobs/{{ $job->id }}/edit">Edit job</x-button>
+        </p>
+    @endcan
 </x-layout>
