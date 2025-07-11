@@ -34,7 +34,10 @@
                                 <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
                             @endguest
                             @auth
-                                <x-nav-link href="/login">Log Out</x-nav-link>
+                                <form method="POST" action="/logout">
+                                    @csrf
+                                        <x-form-button>Log out</x-form-button>
+                                </form>
                             @endauth
                         </div>
                     </div>
